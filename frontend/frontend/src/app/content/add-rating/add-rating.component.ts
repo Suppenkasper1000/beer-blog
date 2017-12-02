@@ -2,22 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import {HttpService} from '../../service/http.service';
 import {BeerEntity} from '../BeerEntity';
 import {Router} from "@angular/router";
-import {NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
 
 
 @Component({
   selector: 'app-add-rating',
   templateUrl: './add-rating.component.html',
   styleUrls: ['./add-rating.component.css'],
-  providers: [HttpService, NgbRatingConfig]
+  providers: [HttpService]
 })
 export class AddRatingComponent implements OnInit {
 
   beer: BeerEntity;
 
-  constructor(private HttpService: HttpService, private router: Router,config: NgbRatingConfig) {
-    config.max = 5;
-  }
+  constructor(private HttpService: HttpService, private router: Router) { }
 
   ngOnInit() {
     this.beer = new BeerEntity();

@@ -10,8 +10,6 @@ import { AddRatingComponent } from './content/add-rating/add-rating.component';
 import {RouterModule, Routes} from "@angular/router";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {FormsModule} from "@angular/forms";
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 
 const appRoutes: Routes = [
   { path: 'add-rating', component: AddRatingComponent },
@@ -30,7 +28,6 @@ const appRoutes: Routes = [
     PageNotFoundComponent
   ],
   imports: [
-    NgbModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

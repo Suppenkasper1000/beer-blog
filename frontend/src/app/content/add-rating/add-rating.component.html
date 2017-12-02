@@ -1,15 +1,30 @@
 <div class="container">
   <h1>Add your Rating!</h1>
-    <div>
+    <div class="form-group">
       <label for="name">Marke:</label>
       <input type="text" class="form-control" id="name"
              [(ngModel)]="beer.name "required>
     </div>
 
     <div class="form-group">
-      <label for="Preis">Preis</label>
+      <label for="preis">Preis:</label>
       <input type="text" class="form-control" id="preis"
              [(ngModel)]="beer.price" required>
     </div>
-    <button type="submit" (click)="addRating()" class="btn btn-success">Submit</button>
+
+  <div class="form-group">
+    <label for="beschreibung">Beschreibung:</label>
+    <input type="text" class="form-control" id="beschreibung"
+           [(ngModel)]="beer.description" required>
+  </div>
+  <div class="form-group">
+    <label for="size">Größe:</label>
+    <input type="text" class="form-control" id="size"
+           [(ngModel)]="beer.litre" required>
+  </div>
+<div class="form-group">
+  <label for="rating">Bewertung:</label>
+  <ngb-rating [(rate)]="beer.rating" id="rating"></ngb-rating>
+</div>
+  <button type="submit" (click)="addRating()" class="btn btn-success">Submit</button>
 </div>

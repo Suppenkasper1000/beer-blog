@@ -1,11 +1,9 @@
 export class BeerEntity {
 
-  constructor(public name: string,
-              public price: number,
-              public rating: number,
-              public description: string,
-              public imagePath: string,
-              public litre: number
-              ) {
-  }
+ name: string;
+               price: number;
+               rating: number;
+               description: string;
+               imagePath: string;
+               litre: number;
 }

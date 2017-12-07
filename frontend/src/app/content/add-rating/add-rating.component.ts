@@ -23,7 +23,7 @@ export class AddRatingComponent implements OnInit {
     this.beer = new BeerEntity();
   }
 
-  addRating() {
+  postRating() {
     this.HttpService.addBeer(this.beer).subscribe(
       answer => this.router.navigate(['/Overview'])
     );

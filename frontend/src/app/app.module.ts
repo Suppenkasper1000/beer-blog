@@ -14,9 +14,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 const appRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: '/Overview',
+    pathMatch: 'full'
+  },
   { path: 'add-rating', component: AddRatingComponent },
   { path: 'Overview',      component: BeerComponent },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 

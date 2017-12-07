@@ -1,8 +1,8 @@
 export class BeerEntity {
  name: string;
- price: number;
+ price: string;
  rating: number;
  description: string;
  imagePath: string;
- litre: number;
+ litre: string;
 }

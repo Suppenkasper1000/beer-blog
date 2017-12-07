@@ -1,30 +1,56 @@
 <div class="container">
   <h1>Add your Rating!</h1>
+  <form name="addRating" #addRating="ngForm">
     <div class="form-group">
       <label for="name">Marke:</label>
-      <input type="text" class="form-control" id="name"
-             [(ngModel)]="beer.name "required>
+      <input type="text" class="form-control" id="name" name="name"
+              required [(ngModel)]="beer.name" #name="ngModel">
+      <div *ngIf="name.errors" class="alert alert-danger">
+        <div [hidden]="!name.errors.required">
+          Bitte gebe die Marke an!
+        </div>
+      </div>
     </div>
-
     <div class="form-group">
-      <label for="preis">Preis:</label>
-      <input type="text" class="form-control" id="preis"
-             [(ngModel)]="beer.price" required>
+      <label for="price">Preis:</label>
+      <input type="text" class="form-control" id="price" name="price"
+             required  [(ngModel)]="beer.price" #price="ngModel" >
+      <div *ngIf="price.errors" class="alert alert-danger">
+        <div [hidden]="!price.errors.required">
+        Bitte gebe einen Preis ein!
+        </div>
+      </div>
     </div>
 
   <div class="form-group">
-    <label for="beschreibung">Beschreibung:</label>
-    <input type="text" class="form-control" id="beschreibung"
-           [(ngModel)]="beer.description" required>
+    <label for="description">Beschreibung:</label>
+    <input type="text" class="form-control" id="description" name="description"
+           [(ngModel)]="beer.description" required #description="ngModel">
+    <div *ngIf="description.errors" class="alert alert-danger">
+      <div [hidden]="!description.errors.required">
+        Bitte gebe eine Beschreibung an!
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="size">Größe:</label>
-    <input type="text" class="form-control" id="size"
-           [(ngModel)]="beer.litre" required>
+    <input type="text" class="form-control" id="size" name="size"
+           [(ngModel)]="beer.litre" required #litre="ngModel">
+    <div *ngIf="litre.errors" class="alert alert-danger">
+      <div [hidden]="!litre.errors.required">
+        Bitte gebe die Größe an!
+      </div>
+    </div>
   </div>
 <div class="form-group">
   <label for="rating">Bewertung:</label>
   <ngb-rating [(rate)]="beer.rating" id="rating"></ngb-rating>
+  <div *ngIf="!beer.rating" class="alert alert-danger">
+  <div>
+    Rating angeben, junge! 1 bis 5 Sterne. 0 Sterne wären unverschämt du Hund.
+  </div>
 </div>
-  <button type="submit" (click)="addRating()" class="btn btn-success">Submit</button>
+    </div>
+    <button (click)="postRating()" type="submit" [disabled]="!beer.rating || !addRating.form.valid" class="btn btn-success">Submit</button>
+  </form>
 </div>

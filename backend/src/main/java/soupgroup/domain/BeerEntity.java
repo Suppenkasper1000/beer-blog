@@ -13,11 +13,11 @@ public class BeerEntity {
     private long id;
 
     private String name;
-    private double price;
+    private String price;
     private int rating;
     private String description;
     private String imagePath;
-    private double litre;
+    private String litre;
 
 
     public long getId() {
@@ -36,11 +36,11 @@ public class BeerEntity {
         this.name = name;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -60,11 +60,11 @@ public class BeerEntity {
         this.description = description;
     }
 
-    public double getLitre() {
+    public String getLitre() {
         return litre;
     }
 
-    public void setLitre(double litre) {
+    public void setLitre(String litre) {
         this.litre = litre;
     }
 

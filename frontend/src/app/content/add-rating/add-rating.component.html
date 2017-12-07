@@ -4,7 +4,7 @@
     <div class="form-group">
       <label for="name">Marke:</label>
       <input type="text" class="form-control" id="name" name="name"
-              required [(ngModel)]="beer.name" #name="ngModel">
+              required maxLength="100" [(ngModel)]="beer.name" #name="ngModel">
       <div *ngIf="name.errors" class="alert alert-danger">
         <div [hidden]="!name.errors.required">
           Bitte gebe die Marke an!
@@ -14,7 +14,7 @@
     <div class="form-group">
       <label for="price">Preis:</label>
       <input type="text" class="form-control" id="price" name="price"
-             required  [(ngModel)]="beer.price" #price="ngModel" >
+             required  maxLength="6" [(ngModel)]="beer.price" #price="ngModel" >
       <div *ngIf="price.errors" class="alert alert-danger">
         <div [hidden]="!price.errors.required">
         Bitte gebe einen Preis ein!
@@ -25,7 +25,7 @@
   <div class="form-group">
     <label for="description">Beschreibung:</label>
     <input type="text" class="form-control" id="description" name="description"
-           [(ngModel)]="beer.description" required #description="ngModel">
+           [(ngModel)]="beer.description" required maxlength="200" #description="ngModel">
     <div *ngIf="description.errors" class="alert alert-danger">
       <div [hidden]="!description.errors.required">
         Bitte gebe eine Beschreibung an!
@@ -35,7 +35,7 @@
   <div class="form-group">
     <label for="size">Größe:</label>
     <input type="text" class="form-control" id="size" name="size"
-           [(ngModel)]="beer.litre" required #litre="ngModel">
+           [(ngModel)]="beer.litre" required maxlength="6" #litre="ngModel">
     <div *ngIf="litre.errors" class="alert alert-danger">
       <div [hidden]="!litre.errors.required">
         Bitte gebe die Größe an!

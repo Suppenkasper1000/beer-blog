@@ -31,6 +31,7 @@ export class FormUploadComponent implements OnInit {
     } else {
       alert('invalid format!');
     }
+    this.upload();
   }
 
 

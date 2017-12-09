@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from '../../service/http.service';
 import {BeerEntity} from '../BeerEntity';
-import {Router} from "@angular/router";
-import {NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
+import {Router} from '@angular/router';
+import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+import {FormUploadComponent} from '../../Upload/form-upload.component';
 
 
 @Component({
@@ -15,13 +16,15 @@ export class AddRatingComponent implements OnInit {
 
   beer: BeerEntity;
 
-  constructor(private HttpService: HttpService, private router: Router,config: NgbRatingConfig) {
+  constructor(private HttpService: HttpService, private router: Router, config: NgbRatingConfig) {
     config.max = 5;
   }
 
   ngOnInit() {
     this.beer = new BeerEntity();
   }
+
+
 
   postRating() {
     this.HttpService.addBeer(this.beer).subscribe(

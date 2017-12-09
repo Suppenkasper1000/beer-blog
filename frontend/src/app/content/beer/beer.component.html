@@ -1,17 +1,25 @@
-<div class="row" >
-  <div class="col-lg-3 col-md-4" *ngFor="let beer of beers">
+
+<div class="container-fluid">
+<div class="row display-flex">
+  <div class="col-lg-3 col-md-4" *ngFor="let beer of beers" >
     <div class="thumbnail">
-      <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ62bvjRufjkHCKSQxOa_Sso0qx3iPn-9nlUSKxDTzIuo8zLfL" alt="...">
+      <div *ngIf="beer.imagePath != null">
+        <img class="thumbPics" src="{{beer.imagePath}}" alt="...">
+      </div>
+        <div *ngIf="beer.imagePath == null">
+        <img class="defaultPic" src="assets/nologo.jpg" alt="...">
+      </div>
       <hr>
       <div class="caption">
         <b>{{beer.name}}</b>
         <p>Preis: {{beer.price}}€</p>
         <p>Größe: {{beer.litre}}L</p>
         <p>{{beer.description}}</p>
-        <ngb-rating [(rate)]="beer.rating"></ngb-rating>
+        <ngb-rating class="rating" [(rate)]="beer.rating"></ngb-rating>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 

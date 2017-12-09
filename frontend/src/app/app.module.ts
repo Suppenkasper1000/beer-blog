@@ -7,10 +7,16 @@ import { BeerComponent } from './content/beer/beer.component';
 import {HttpService} from './service/http.service';
 import {HttpModule} from '@angular/http';
 import { AddRatingComponent } from './content/add-rating/add-rating.component';
-import {RouterModule, Routes} from "@angular/router";
+import {RouterModule, Routes} from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {UploadFileService} from "./service/upload-file.service";
+import {ListUploadComponent} from "./Upload/list-upload.component";
+import {DetailsUploadComponent} from "./Upload/details-upload.component";
+import {FormUploadComponent} from "./Upload/form-upload.component";
+import {HttpClientModule} from "@angular/common/http";
+
 
 
 const appRoutes: Routes = [
@@ -32,7 +38,10 @@ const appRoutes: Routes = [
     HeaderComponent,
     BeerComponent,
     AddRatingComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DetailsUploadComponent,
+    FormUploadComponent,
+    ListUploadComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -42,9 +51,10 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     HttpModule,
+    HttpClientModule,
   FormsModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, UploadFileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,12 @@
   <h1>Add your Rating!</h1>
   <form name="addRating" #addRating="ngForm">
     <div class="form-group">
+      <div>
+      <label for="img">Bild:</label>
+      </div>
+    <form-upload [beer]="beer" id="img" name="img"></form-upload>
+    </div>
+    <div class="form-group">
       <label for="name">Marke:</label>
       <input type="text" class="form-control" id="name" name="name"
               required maxLength="100" [(ngModel)]="beer.name" #name="ngModel">
@@ -54,3 +60,5 @@
     <button (click)="postRating()" type="submit" [disabled]="!beer.rating || !addRating.form.valid" class="btn btn-success">Submit</button>
   </form>
 </div>
+
+
